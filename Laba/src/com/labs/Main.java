@@ -54,7 +54,7 @@ public class Main {
 
         System.out.println("}");
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // Используем паттерн БИЛДЕР, чтобы красиво
         // инициализировать учебный план
 //        AcademicPlan plan = AcademicPlanBuilder.stream()
@@ -95,7 +95,8 @@ public class Main {
 //                .build();
 
         TaskAddThread myThread = new TaskAddThread();
-        myThread.run();
+        myThread.start();
+        myThread.join();
 
         new Thread(new Runnable() {
             @Override

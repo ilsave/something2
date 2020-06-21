@@ -1,6 +1,6 @@
 package com.labs;
 
-public class TaskAddThread implements Runnable{
+public class TaskAddThread extends Thread {
     @Override
     public void run() {
         AcademicPlan plan = AcademicPlanBuilder.stream()
@@ -39,6 +39,12 @@ public class TaskAddThread implements Runnable{
                 .requires("h")
                 .produces("e")
                 .build();
-        PlanStructure planStructure = new PlanStructure(plan);
+        PlanStructure.plan = plan;
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //PlanStructure planStructure = new PlanStructure(plan);
     }
 }

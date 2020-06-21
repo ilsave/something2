@@ -3,10 +3,10 @@ package com.labs;
 
 
 public class PlanStructure {
-   static AcademicPlan plan = null;
+   public volatile static AcademicPlan plan = null;
 
     public PlanStructure(AcademicPlan plan) {
-        this.plan = plan;
+        PlanStructure.plan = plan;
     }
 
     public PlanStructure() {
