@@ -39,12 +39,12 @@ public class TaskAddThread extends Thread {
                 .requires("h")
                 .produces("e")
                 .build();
-        PlanStructure.plan = plan;
+        PlanStructure planStructure = new PlanStructure();
+        planStructure.setPlan(plan);
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        //PlanStructure planStructure = new PlanStructure(plan);
     }
 }
