@@ -2,23 +2,25 @@ package com.labs;
 
 public class PlanStructure {
 
-    public final Object object;
+     static Object object = null;
 
-   public static AcademicPlan plan = null;
+     static AcademicPlan plan = null;
 
-
-    public PlanStructure() {
+     PlanStructure() {
         object = new Object();
     }
 
-    public AcademicPlan getPlan() {
+
+    AcademicPlan getPlan() {
         synchronized (object) {
             return plan;
         }
     }
 
-    public void setPlan(AcademicPlan plan) {
+    void setPlan(AcademicPlan plan) {
+
         synchronized (object) {
+
             this.plan = plan;
         }
     }
